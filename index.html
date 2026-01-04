@@ -14,72 +14,89 @@
         body { font-family: 'Sarabun', sans-serif; background-color: #f0f2f5; }
         .hidden { display: none !important; }
         
-        /* --- Header Design --- */
+        /* --- 1. New Header Design (รองรับตำบล) --- */
         .app-header {
-            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            background: linear-gradient(135deg, #004e92, #000428); /* สีน้ำเงินเข้มดูเป็นทางการ */
             color: white;
-            padding: 20px 20px 30px 20px;
-            border-bottom-left-radius: 30px;
-            border-bottom-right-radius: 30px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            padding: 25px 20px 35px 20px;
+            border-bottom-left-radius: 35px;
+            border-bottom-right-radius: 35px;
+            box-shadow: 0 4px 25px rgba(0,0,0,0.2);
             position: relative;
             overflow: hidden;
         }
+
+        /* Effect พื้นหลัง */
         .app-header::before {
-            content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 60%);
-            pointer-events: none;
+            content: ''; position: absolute; top: -20%; right: -10%; width: 150px; height: 150px;
+            background: rgba(255,255,255,0.05); border-radius: 50%; pointer-events: none;
         }
+        .app-header::after {
+            content: ''; position: absolute; bottom: -20%; left: -10%; width: 100px; height: 100px;
+            background: rgba(255,255,255,0.05); border-radius: 50%; pointer-events: none;
+        }
+
         .header-content {
             position: relative; z-index: 2;
             display: flex; justify-content: space-between; align-items: flex-start;
         }
-        .district-badge {
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(10px);
+
+        /* ป้ายบอกสถานที่ (อำเภอ/ตำบล) */
+        .location-info {
+            display: flex; flex-direction: column; gap: 5px;
+            margin-bottom: 5px;
+        }
+        
+        .location-badge {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(5px);
             padding: 4px 12px;
-            border-radius: 50px;
+            border-radius: 8px;
             font-size: 0.85rem;
             font-weight: 300;
             display: inline-flex; align-items: center;
-            margin-bottom: 8px;
             border: 1px solid rgba(255,255,255,0.1);
+            width: fit-content;
         }
+        
         .unit-title {
-            font-size: 1.5rem; font-weight: 700; margin: 0; line-height: 1.2;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            font-size: 1.6rem; font-weight: 700; margin: 5px 0 0 0;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3); letter-spacing: 0.5px;
         }
-        .btn-logout {
-            background: rgba(255, 255, 255, 0.95);
-            color: #dc3545; border: none;
-            width: 45px; height: 45px; border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 1.2rem; box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-            transition: transform 0.2s;
-        }
-        .btn-logout:active { transform: scale(0.9); }
 
-        /* --- Card & Form --- */
-        .main-container { margin-top: -20px; padding-bottom: 40px; }
+        .btn-logout {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff; border: 1px solid rgba(255,255,255,0.3);
+            width: 42px; height: 42px; border-radius: 12px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.1rem; backdrop-filter: blur(5px);
+            transition: all 0.2s;
+        }
+        .btn-logout:hover { background: rgba(255, 68, 68, 0.8); border-color: transparent; }
+        .btn-logout:active { transform: scale(0.95); }
+
+        /* --- 2. Card & Form --- */
+        .main-container { margin-top: -25px; padding-bottom: 40px; }
         
         .candidate-card {
             text-align: center; border: 2px solid transparent;
-            transition: all 0.2s; background: white; border-radius: 15px;
+            transition: all 0.2s; background: white; border-radius: 16px;
         }
-        .candidate-card:focus-within { border-color: #0d6efd; box-shadow: 0 0 0 0.25rem rgba(13,110,253,.25); }
+        .candidate-card:focus-within { border-color: #0d6efd; background-color: #f8fbff; }
         
         .candidate-img {
-            width: 80px; height: 80px; 
+            width: 75px; height: 75px; 
             object-fit: cover; border-radius: 50%; 
-            margin-bottom: 5px; border: 3px solid #f8f9fa;
+            margin-bottom: 5px; border: 3px solid #f1f1f1;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
         
         .score-input {
             font-size: 1.4rem; text-align: center; font-weight: bold;
-            border-radius: 10px; border: 1px solid #ced4da; padding: 5px;
+            border-radius: 10px; border: 1px solid #dee2e6; padding: 8px;
+            background-color: #fcfcfc;
         }
-        .score-input:focus { background-color: #e8f0fe; border-color: #0d6efd; }
+        .score-input:focus { background-color: #fff; border-color: #0d6efd; box-shadow: 0 0 0 0.2rem rgba(13,110,253,.15); }
     </style>
 </head>
 <body>
@@ -87,23 +104,26 @@
     <div id="loginPage" class="container py-5 hidden" style="min-height: 100vh; display: flex; align-items: center;">
         <div class="w-100">
             <div class="text-center mb-4">
-                <h1 class="fw-bold text-primary"><i class="fas fa-vote-yea"></i> รายงานผลคะแนน</h1>
-                <p class="text-muted">สำหรับเจ้าหน้าที่ประจำหน่วยเลือกตั้ง</p>
+                <div class="bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3 shadow" style="width: 70px; height: 70px; font-size: 30px;">
+                    <i class="fas fa-vote-yea"></i>
+                </div>
+                <h2 class="fw-bold text-dark">รายงานผลคะแนน</h2>
+                <p class="text-muted small">ระบบสำหรับเจ้าหน้าที่ประจำหน่วย</p>
             </div>
             
             <div class="card shadow-sm border-0 rounded-4 mx-auto" style="max-width: 400px;">
                 <div class="card-body p-4">
                     <form id="loginForm">
                         <div class="mb-3">
-                            <label class="form-label fw-bold">ชื่อหน่วย (User ID)</label>
-                            <input type="text" id="loginUnit" class="form-control form-control-lg bg-light" placeholder="เช่น Unit01" required>
+                            <label class="form-label fw-bold text-secondary">ชื่อหน่วย (User ID)</label>
+                            <input type="text" id="loginUnit" class="form-control form-control-lg bg-light border-0" placeholder="เช่น Unit01" required>
                         </div>
                         <div class="mb-4">
-                            <label class="form-label fw-bold">รหัสผ่าน</label>
-                            <input type="password" id="loginPass" class="form-control form-control-lg bg-light" placeholder="****" required>
+                            <label class="form-label fw-bold text-secondary">รหัสผ่าน</label>
+                            <input type="password" id="loginPass" class="form-control form-control-lg bg-light border-0" placeholder="••••" required>
                         </div>
-                        <button type="submit" id="btnLogin" class="btn btn-primary w-100 btn-lg rounded-pill fw-bold shadow">
-                            เข้าสู่ระบบ
+                        <button type="submit" id="btnLogin" class="btn btn-primary w-100 btn-lg rounded-pill fw-bold shadow-sm">
+                            เข้าสู่ระบบ <i class="fas fa-arrow-right ms-2"></i>
                         </button>
                     </form>
                 </div>
@@ -116,9 +136,14 @@
         <div class="app-header">
             <div class="header-content container" style="max-width: 600px;">
                 <div>
-                    <div class="district-badge">
-                        <i class="fas fa-map-marker-alt me-1 text-warning"></i> 
-                        อำเภอ<span id="displayAmphoe" class="ms-1 fw-bold">...</span>
+                    <div class="location-info">
+                        <div class="location-badge">
+                            <i class="fas fa-map text-info me-2"></i> 
+                            อำเภอ<span id="displayAmphoe" class="ms-1 fw-bold">...</span>
+                            || &nbsp;<i class="fas fa-map-marker-alt text-warning me-2"></i> 
+                            ตำบล<span id="displayTambon" class="ms-1 fw-bold">...</span>
+                        </div>
+                        
                     </div>
                     <h1 class="unit-title" id="displayUnitName">กำลังโหลด...</h1>
                 </div>
@@ -132,11 +157,11 @@
         <div class="container main-container" style="max-width: 600px;">
             <form id="scoreForm">
                 
-                <div class="card border-0 shadow-sm mb-4 rounded-4">
-                    <div class="card-body">
-                        <label class="form-label fw-bold text-secondary"><i class="far fa-clock"></i> เลือกรอบเวลาส่งคะแนน</label>
-                        <select class="form-select form-select-lg text-center fw-bold text-primary border-2" id="timeRound" required>
-                            <option value="" selected disabled>-- แตะเพื่อเลือกเวลา --</option>
+                <div class="card border-0 shadow-sm mb-4 rounded-4 bg-white">
+                    <div class="card-body p-4">
+                        <label class="form-label fw-bold text-primary mb-2"><i class="far fa-clock"></i> รอบเวลาส่งคะแนน</label>
+                        <select class="form-select form-select-lg text-center fw-bold border-2 bg-light" id="timeRound" required>
+                            <option value="" selected disabled>-- เลือกเวลา --</option>
                             </select>
                     </div>
                 </div>
@@ -187,10 +212,9 @@
                     </div>
                 </div>
 
-                <button type="submit" id="btnSubmit" class="btn btn-success w-100 btn-lg py-3 rounded-pill shadow fw-bold fs-5">
+                <button type="submit" id="btnSubmit" class="btn btn-success w-100 btn-lg py-3 rounded-pill shadow fw-bold fs-5 mb-5">
                     <i class="fas fa-paper-plane me-2"></i> ยืนยันส่งคะแนน
                 </button>
-                <div class="text-center mt-3 text-muted small">กรุณาตรวจสอบความถูกต้องก่อนกดส่ง</div>
 
             </form>
         </div>
@@ -204,12 +228,13 @@
 
         let currentUnit = '';
         let currentAmphoe = '';
+        let currentTambon = ''; // ตัวแปรเก็บตำบล
 
         // 1. สร้างตัวเลือกเวลา (08:00 - 17:00)
         const timeSelect = document.getElementById('timeRound');
-        for (let h = 8; h <= 17; h++) {
-            for (let m = 0; m < 60; m += 15) {
-                if (h === 17 && m > 0) break;
+        for (let h = 17; h <= 23; h++) {
+            for (let m = 0; m < 60; m += 20) {
+                if (h === 23 && m > 0) break;
                 const timeStr = `${h.toString().padStart(2,'0')}:${m.toString().padStart(2,'0')}`;
                 const opt = document.createElement('option');
                 opt.value = timeStr;
@@ -218,24 +243,22 @@
             }
         }
 
-        // 2. ตรวจสอบเมื่อเปิดเว็บ (QR Code Check)
+        // 2. เช็ค QR Code เมื่อเปิดเว็บ
         window.onload = async function() {
             const urlParams = new URLSearchParams(window.location.search);
             const unitParam = urlParams.get('unit');
 
             if (unitParam) {
-                // ถ้ามี ?unit=... ให้ลอง Login อัตโนมัติ
                 await autoLoginQR(unitParam);
             } else {
-                // ถ้าไม่มี ให้แสดงหน้า Login ปกติ
                 document.getElementById('loginPage').classList.remove('hidden');
             }
         };
 
-        // 3. ฟังก์ชัน Auto Login สำหรับ QR Code
+        // 3. Auto Login (QR)
         async function autoLoginQR(unitName) {
             Swal.fire({
-                title: 'กำลังตรวจสอบข้อมูล...',
+                title: 'กำลังตรวจสอบ...',
                 text: 'กรุณารอสักครู่',
                 allowOutsideClick: false,
                 didOpen: () => { Swal.showLoading() }
@@ -243,35 +266,25 @@
 
             try {
                 const formData = new FormData();
-                formData.append('action', 'getUnitInfo'); // สั่งให้ Script ไปหาข้อมูลหน่วยนี้
+                formData.append('action', 'getUnitInfo');
                 formData.append('unitName', unitName);
 
                 const response = await fetch(scriptURL, { method: 'POST', body: formData });
                 const result = await response.json();
 
                 if (result.status === 'success') {
-                    // Login ผ่าน QR สำเร็จ
-                    currentUnit = unitName;
-                    currentAmphoe = result.amphoe; // ได้ชื่ออำเภอมาด้วย
-
-                    // อัปเดตหน้าจอ
-                    document.getElementById('displayUnitName').innerText = currentUnit;
-                    document.getElementById('displayAmphoe').innerText = currentAmphoe;
-
-                    Swal.close();
-                    document.getElementById('loginPage').classList.add('hidden');
-                    document.getElementById('scorePage').classList.remove('hidden');
+                    handleLoginSuccess(unitName, result.amphoe, result.tambon);
                 } else {
-                    Swal.fire('ผิดพลาด', 'QR Code ไม่ถูกต้อง หรือไม่พบชื่อหน่วยนี้', 'error');
+                    Swal.fire('ผิดพลาด', 'QR Code ไม่ถูกต้อง', 'error');
                     document.getElementById('loginPage').classList.remove('hidden');
                 }
             } catch (error) {
-                Swal.fire('Error', 'ไม่สามารถเชื่อมต่อ Server ได้', 'error');
+                Swal.fire('Error', 'เชื่อมต่อ Server ไม่ได้', 'error');
                 document.getElementById('loginPage').classList.remove('hidden');
             }
         }
 
-        // 4. ฟังก์ชัน Login ปกติ (สำหรับคนไม่มี QR)
+        // 4. Login ปกติ
         document.getElementById('loginForm').addEventListener('submit', async (e) => {
             e.preventDefault();
             const unit = document.getElementById('loginUnit').value;
@@ -279,7 +292,7 @@
             const btn = document.getElementById('btnLogin');
 
             btn.disabled = true;
-            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> กำลังเข้าสู่ระบบ...';
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> กำลังตรวจสอบ...';
 
             try {
                 const formData = new FormData();
@@ -291,41 +304,52 @@
                 const result = await response.json();
 
                 if (result.status === 'success') {
-                    currentUnit = unit;
-                    currentAmphoe = result.amphoe;
-
-                    document.getElementById('displayUnitName').innerText = currentUnit;
-                    document.getElementById('displayAmphoe').innerText = currentAmphoe;
-
-                    document.getElementById('loginPage').classList.add('hidden');
-                    document.getElementById('scorePage').classList.remove('hidden');
+                    handleLoginSuccess(unit, result.amphoe, result.tambon);
                 } else {
-                    Swal.fire('เข้าสู่ระบบไม่สำเร็จ', result.message, 'error');
+                    Swal.fire('Login ไม่ผ่าน', result.message, 'error');
+                    btn.disabled = false;
+                    btn.innerText = 'เข้าสู่ระบบ';
                 }
             } catch (err) {
                 Swal.fire('Error', 'เชื่อมต่อ Server ไม่ได้', 'error');
+                btn.disabled = false;
+                btn.innerText = 'เข้าสู่ระบบ';
             }
-            btn.disabled = false;
-            btn.innerText = 'เข้าสู่ระบบ';
         });
 
-        // 5. ฟังก์ชันส่งคะแนน
+        // ฟังก์ชันจัดการเมื่อ Login สำเร็จ (ใช้ร่วมกันทั้ง QR และ Login ปกติ)
+        function handleLoginSuccess(unit, amphoe, tambon) {
+            currentUnit = unit;
+            currentAmphoe = amphoe;
+            currentTambon = tambon; // เก็บค่าตำบล
+
+            // แสดงผลบน Header
+            document.getElementById('displayUnitName').innerText = currentUnit;
+            document.getElementById('displayAmphoe').innerText = currentAmphoe;
+            document.getElementById('displayTambon').innerText = currentTambon; // แสดงตำบล
+
+            Swal.close();
+            document.getElementById('loginPage').classList.add('hidden');
+            document.getElementById('scorePage').classList.remove('hidden');
+        }
+
+        // 5. ส่งคะแนน
         document.getElementById('scoreForm').addEventListener('submit', async (e) => {
             e.preventDefault();
             
             if(!document.getElementById('timeRound').value){
-                Swal.fire('แจ้งเตือน', 'กรุณาเลือกช่วงเวลาก่อนส่งคะแนน', 'warning');
+                Swal.fire('แจ้งเตือน', 'กรุณาเลือกเวลาก่อนส่ง', 'warning');
                 return;
             }
 
             Swal.fire({
-                title: 'ยืนยันการส่งคะแนน?',
+                title: 'ยืนยันส่งคะแนน?',
                 text: `รอบเวลา ${document.getElementById('timeRound').value}`,
                 icon: 'question',
                 showCancelButton: true,
                 confirmButtonColor: '#198754',
                 cancelButtonColor: '#d33',
-                confirmButtonText: 'ยืนยัน ส่งเลย!',
+                confirmButtonText: 'ส่งเลย',
                 cancelButtonText: 'ยกเลิก'
             }).then((result) => {
                 if (result.isConfirmed) {
@@ -342,10 +366,11 @@
             const form = document.getElementById('scoreForm');
             const formData = new FormData(form);
             
-            // แนบข้อมูลสำคัญเพิ่ม
+            // แนบข้อมูลสำคัญ
             formData.append('action', 'submitScore');
             formData.append('unitName', currentUnit);
-            formData.append('amphoe', currentAmphoe); // ส่งชื่ออำเภอกลับไปด้วย
+            formData.append('amphoe', currentAmphoe);
+            formData.append('tambon', currentTambon); // ส่งตำบลกลับไปบันทึก
             formData.append('timeRound', document.getElementById('timeRound').value);
 
             try {
@@ -366,7 +391,7 @@
                     Swal.fire('ผิดพลาด', result.message, 'error');
                 }
             } catch (err) {
-                Swal.fire('Error', 'ส่งข้อมูลไม่สำเร็จ กรุณาลองใหม่', 'error');
+                Swal.fire('Error', 'ส่งข้อมูลไม่สำเร็จ', 'error');
             }
             
             btn.disabled = false;
@@ -374,7 +399,6 @@
         }
 
         function logout() {
-            // ลบ Query Param (เช่น ?unit=...) ออก แล้วรีโหลดหน้าเว็บเพื่อกลับไปหน้า Login
             window.history.replaceState({}, document.title, window.location.pathname);
             location.reload();
         }
