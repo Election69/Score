@@ -415,6 +415,7 @@
                     formData.append('score'+i, 0);
                 }
             } else {
+                formData.append('timeRound', document.getElementById('timeRound').value);
                 // กรณีปกติ: ค่าจะถูกดึงจาก Form โดยอัตโนมัติ แต่ต้องตรวจสอบ timeRound เพราะถ้า disabled มันจะไม่มา
                 // (ใน toggleFinishedState เราเปิด input ไว้ถ้าไม่ finished ดังนั้น FormData จะเก็บค่ามาปกติ)
             }
@@ -457,4 +458,5 @@
     </script>
 </body>
 </html>
+
 
