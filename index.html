@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>ระบบส่งผลคะแนนเลือกตั้ง 2569 นราธิวาส (เขต 4)</title>
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -125,8 +125,7 @@
     <div id="scorePage" class="hidden">
         
         <div class="app-header">
-            <div class="header-content container" style="max-width: 600px;">
-                <div>
+            <div class="header-content container" style="max-width: 800px;"> <div>
                     <div class="location-info">
                         <div class="location-badge">
                             <i class="fas fa-map text-info me-2"></i> 
@@ -143,8 +142,7 @@
             </div>
         </div>
 
-        <div class="container main-container" style="max-width: 600px;">
-            <form id="scoreForm">
+        <div class="container main-container" style="max-width: 800px;"> <form id="scoreForm">
                 
                 <div class="card border-0 shadow-sm mb-3 rounded-4 bg-white">
                     <div class="card-body p-4">
@@ -170,47 +168,61 @@
                 </div>
 
                 <div class="row g-3 mb-4" id="scoreContainer">
-                    <div class="col-4">
+                    <div class="col-6 col-md-3">
                         <div class="card candidate-card h-100 py-3 shadow-sm rounded-4">
                             <img src="https://img2.pic.in.th/1350d68330953409d.png" class="candidate-img mx-auto">
-                            <div class="fw-bold">เบอร์ 1</div>
-                            <input type="number" inputmode="numeric" class="form-control score-input mt-2" id="score1" name="score1" placeholder="0">
+                            <div class="fw-bold mt-2">เบอร์ 1</div>
+                            <input type="number" inputmode="numeric" class="form-control score-input mt-2 mx-auto" style="width: 80%;" id="score1" name="score1" placeholder="0">
                         </div>
                     </div>
-                    <div class="col-4">
+                    <div class="col-6 col-md-3">
                         <div class="card candidate-card h-100 py-3 shadow-sm rounded-4">
                             <img src="https://img5.pic.in.th/file/secure-sv1/2e202bb41458cf2b1.png" class="candidate-img mx-auto">
-                            <div class="fw-bold">เบอร์ 2</div>
-                            <input type="number" inputmode="numeric" class="form-control score-input mt-2" id="score2" name="score2" placeholder="0">
+                            <div class="fw-bold mt-2">เบอร์ 2</div>
+                            <input type="number" inputmode="numeric" class="form-control score-input mt-2 mx-auto" style="width: 80%;" id="score2" name="score2" placeholder="0">
                         </div>
                     </div>
-                    <div class="col-4">
+                    <div class="col-6 col-md-3">
                         <div class="card candidate-card h-100 py-3 shadow-sm rounded-4">
                             <img src="https://img2.pic.in.th/315d39fe9e514ce03.png" class="candidate-img mx-auto">
-                            <div class="fw-bold">เบอร์ 3</div>
-                            <input type="number" inputmode="numeric" class="form-control score-input mt-2" id="score3" name="score3" placeholder="0">
+                            <div class="fw-bold mt-2">เบอร์ 3</div>
+                            <input type="number" inputmode="numeric" class="form-control score-input mt-2 mx-auto" style="width: 80%;" id="score3" name="score3" placeholder="0">
                         </div>
                     </div>
-
-                    <div class="col-4">
+                    <div class="col-6 col-md-3">
                         <div class="card candidate-card h-100 py-3 shadow-sm rounded-4">
                             <img src="https://img5.pic.in.th/file/secure-sv1/48e77349737a85eda.png" class="candidate-img mx-auto">
-                            <div class="fw-bold">เบอร์ 4</div>
-                            <input type="number" inputmode="numeric" class="form-control score-input mt-2" id="score4" name="score4" placeholder="0">
+                            <div class="fw-bold mt-2">เบอร์ 4</div>
+                            <input type="number" inputmode="numeric" class="form-control score-input mt-2 mx-auto" style="width: 80%;" id="score4" name="score4" placeholder="0">
                         </div>
                     </div>
-                    <div class="col-4">
+                    <div class="col-6 col-md-3">
                         <div class="card candidate-card h-100 py-3 shadow-sm rounded-4">
                             <img src="https://img2.pic.in.th/5b028fab05d845d6a.png" class="candidate-img mx-auto">
-                            <div class="fw-bold">เบอร์ 5</div>
-                            <input type="number" inputmode="numeric" class="form-control score-input mt-2" id="score5" name="score5" placeholder="0">
+                            <div class="fw-bold mt-2">เบอร์ 5</div>
+                            <input type="number" inputmode="numeric" class="form-control score-input mt-2 mx-auto" style="width: 80%;" id="score5" name="score5" placeholder="0">
                         </div>
                     </div>
-                    <div class="col-4">
+                    <div class="col-6 col-md-3">
                         <div class="card candidate-card h-100 py-3 shadow-sm rounded-4">
                             <img src="https://img2.pic.in.th/69adc3cca999bb66d.png" class="candidate-img mx-auto">
-                            <div class="fw-bold">เบอร์ 6</div>
-                            <input type="number" inputmode="numeric" class="form-control score-input mt-2" id="score6" name="score6" placeholder="0">
+                            <div class="fw-bold mt-2">เบอร์ 6</div>
+                            <input type="number" inputmode="numeric" class="form-control score-input mt-2 mx-auto" style="width: 80%;" id="score6" name="score6" placeholder="0">
+                        </div>
+                    </div>
+                    
+                    <div class="col-6 col-md-3">
+                        <div class="card candidate-card h-100 py-3 shadow-sm rounded-4">
+                            <img src="https://img5.pic.in.th/file/secure-sv1/7be7735614c13ea83.png" class="candidate-img mx-auto">
+                            <div class="fw-bold mt-2">เบอร์ 7</div>
+                            <input type="number" inputmode="numeric" class="form-control score-input mt-2 mx-auto" style="width: 80%;" id="score7" name="score7" placeholder="0">
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <div class="card candidate-card h-100 py-3 shadow-sm rounded-4">
+                            <img src="https://img2.pic.in.th/8a30aa5cce1f441b0.png" class="candidate-img mx-auto">
+                            <div class="fw-bold mt-2">เบอร์ 8</div>
+                            <input type="number" inputmode="numeric" class="form-control score-input mt-2 mx-auto" style="width: 80%;" id="score8" name="score8" placeholder="0">
                         </div>
                     </div>
                 </div>
@@ -399,7 +411,7 @@
             btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> กำลังส่งข้อมูล...';
 
             const form = document.getElementById('scoreForm');
-            const formData = new FormData(form); // มันจะเก็บเฉพาะ field ที่ไม่ disabled
+            const formData = new FormData(form); 
             
             // แนบข้อมูลสำคัญ
             formData.append('action', 'submitScore');
@@ -409,15 +421,14 @@
 
             // --- จัดการข้อมูลตามสถานะ Checkbox ---
             if (isFinished) {
-                // กรณีเสร็จสิ้น: บังคับส่งเวลา 23:00 และคะแนน 0
+                // กรณีเสร็จสิ้น: บังคับส่งเวลา Finish และคะแนน 0
                 formData.append('timeRound', 'Finish');
-                for(let i=1; i<=6; i++) {
+                // วนลูปถึง 8 (สำคัญ!)
+                for(let i=1; i<=8; i++) {
                     formData.append('score'+i, 0);
                 }
             } else {
                 formData.append('timeRound', document.getElementById('timeRound').value);
-                // กรณีปกติ: ค่าจะถูกดึงจาก Form โดยอัตโนมัติ แต่ต้องตรวจสอบ timeRound เพราะถ้า disabled มันจะไม่มา
-                // (ใน toggleFinishedState เราเปิด input ไว้ถ้าไม่ finished ดังนั้น FormData จะเก็บค่ามาปกติ)
             }
 
             try {
@@ -435,7 +446,7 @@
                     
                     // Reset Form
                     if(isFinished) {
-                        document.getElementById('chkFinished').click(); // ติ๊กออกเพื่อเปิด input
+                        document.getElementById('chkFinished').click(); 
                     }
                     form.reset();
                     document.getElementById('timeRound').value = "";
@@ -458,7 +469,3 @@
     </script>
 </body>
 </html>
-
-
-
-
